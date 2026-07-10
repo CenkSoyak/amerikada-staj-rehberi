@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Çocuğunuz Amerika'da Staj Bulsun — Ebeveyn Rehberi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2c5282;
+            --accent: #d4a574;
+            --accent-dark: #b08d5f;
+            --text: #2d3748;
+            --text-light: #4a5568;
+            --bg: #faf9f7;
+            --bg-card: #ffffff;
+            --border: #e2e0dc;
+            --success: #38a169;
+            --warning: #d69e2e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212,165,116,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212,165,116,0.2);
+            border: 1px solid rgba(212,165,116,0.4);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 em {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-weight: 300;
+        }
+
+        .hero-note {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            padding: 8px 0;
+            min-width: max-content;
+        }
+
+        .nav-list a {
+            text-decoration: none;
+            color: var(--text-light);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-list a:hover {
+            background: var(--bg);
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 60px;
+            scroll-margin-top: 80px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .section-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .section h3 {
+            font-size: 1.25rem;
+            color: var(--primary-light);
+            margin: 28px 0 12px;
+            font-weight: 600;
+        }
+
+        .section p {
+            margin-bottom: 16px;
+            color: var(--text-light);
+        }
+
+        /* Cards */
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin: 24px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .info-card h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Lists */
+        ul.feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul.feature-list li {
+            padding: 8px 0 8px 28px;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        ul.feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Table */
+        .table-wrap {
+            overflow-x: auto;
+            margin: 24px 0;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-card);
+            font-size: 0.95rem;
+        }
+
+        th {
+            background: var(--primary);
+            color: white;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 14px 16px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-light);
+        }
+
+        tr:hover td {
+            background: #f7f6f4;
+        }
+
+        /* Quote / Highlight */
+        .quote-box {
+            background: linear-gradient(135deg, #fef6e9, #fdf2e0);
+            border-left: 4px solid var(--accent);
+            padding: 24px 28px;
+            border-radius: 0 12px 12px 0;
+            margin: 28px 0;
+            position: relative;
+        }
+
+        .quote-box p {
+            color: var(--text);
+            font-style: italic;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .quote-box .author {
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: var(--accent-dark);
+            font-style: normal;
+            font-weight: 600;
+        }
+
+        /* Checklist */
+        .checklist {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            margin: 24px 0;
+        }
+
+        .checklist h4 {
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-size: 1.1rem;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .check-box {
+            width: 22px;
+            height: 22px;
+            border: 2px solid var(--border);
+            border-radius: 6px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            transition: all 0.2s;
+        }
+
+        .checklist-item:hover .check-box {
+            border-color: var(--accent);
+            background: rgba(212,165,116,0.1);
+        }
+
+        /* Process Flow */
+        .process-flow {
+            background: var(--primary);
+            color: white;
+            padding: 28px;
+            border-radius: 16px;
+            margin: 24px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            line-height: 2;
+            overflow-x: auto;
+        }
+
+        .process-flow .arrow {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Comparison Table */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .comparison-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .comparison-card.bad {
+            border-color: #fc8181;
+            background: #fff5f5;
+        }
+
+        .comparison-card.good {
+            border-color: var(--success);
+            background: #f0fff4;
+        }
+
+        .comparison-card h5 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .comparison-card.bad h5 {
+            color: #c53030;
+        }
+
+        .comparison-card.good h5 {
+            color: var(--success);
+        }
+
+        .comparison-card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        /* CTA / Final */
+        .final-cta {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212,165,116,0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .final-cta p {
+            opacity: 0.9;
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section h2 {
+                font-size: 1.5rem;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 40px 16px;
+            }
+
+            .info-card, .checklist {
+                padding: 20px;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Print styles */
+        @media print {
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .nav-bar {
+                display: none;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">EBEVEYN REHBERİ</div>
+            <h1>Çocuğunuz Amerika'da <em>Staj Bulsun</em></h1>
+            <p class="hero-subtitle">Bir ebeveynin gözünden, sistemli, sonuç odaklı ve uygulanabilir bir yol haritası.</p>
+            <p class="hero-note">Bu rehber, bir ebeveynin kızının UC Berkeley'den mezun olduktan sonra ABD'de staj bulma sürecinde yaşadığı tecrübelerden derlenmiştir.</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <ul class="nav-list">
+                <li><a href="#visa">VISA Engeli</a></li>
+                <li><a href="#hacim">Hacim</a></li>
+                <li><a href="#basvuru">Başvuru</a></li>
+                <li><a href="#mulakat">Mülakat</a></li>
+                <li><a href="#networking">Networking</a></li>
+                <li><a href="#kultur">Kültür</a></li>
+                <li><a href="#rolunuz">Rolünüz</a></li>
+                <li><a href="#plan">Plan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <!-- Section 1 -->
+        <section class="section" id="visa">
+            <div class="section-header">
+                <div class="section-number">1</div>
+                <h2>Gerçekleri Erken Öğrenin: VISA Engeli</h2>
+            </div>
+            <p>ABD'de staj bulmanın en büyük engellerinden biri, büyük şirketlerin yabancı öğrencilere <strong>VISA sponsorluğu (sponsorship)</strong> yapmamasıdır. Bu durum, özellikle Trump döneminden sonra daha da belirginleşmiştir.</p>
+
+            <div class="info-card">
+                <h4>⚠️ Etkilenen Şirket Türleri</h4>
+                <ul class="feature-list">
+                    <li><strong>Büyük danışmanlık firmaları:</strong> Deloitte, PwC, Accenture, EY</li>
+                    <li><strong>Çok uluslu devler:</strong> P&G, Microsoft ve benzerleri</li>
+                </ul>
+            </div>
+
+            <div class="quote-box">
+                <p>"Amerikan vatandaşı değilsen, Deloitte'tan Microsoft'a kadar büyük şirketler sana sponsor olmuyor. Bu gerçeği erken kabul etmek lazım."</p>
+            </div>
+
+            <h3>Ne Yapmalı?</h3>
+            <ul class="feature-list">
+                <li>Çocuğunuzun bu dev şirketlere odaklanmasının zaman kaybı olacağını kabul edin.</li>
+                <li>Hedefi daraltın: <strong>Daha küçük, girişim (startup) aşamasındaki veya büyüme odaklı şirketlere</strong> yönelmek çok daha akıllıcadır.</li>
+                <li>Bu şirketler genellikle daha esnek olur ve yeteneğe odaklanır.</li>
+            </ul>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="section" id="hacim">
+            <div class="section-header">
+                <div class="section-number">2</div>
+                <h2>Hacimli Başvuru Stratejisi</h2>
+            </div>
+            <p>"Kaliteli birkaç başvuru yapsın" düşüncesi bu süreçte işe yaramaz. <strong>Hacim, bu oyunun adıdır.</strong></p>
+
+            <div class="info-card">
+                <h4>🎯 Örnek Sayılar</h4>
+                <p>Hedef: Haftada <strong style="color: var(--primary); font-size: 1.3rem;">300 başvuru</strong></p>
+                <p>Amaç: Product Management, yazılım veya hedef pozisyona yönelik yoğun bir başvuru trafiği oluşturmak.</p>
+            </div>
+
+            <h3>Neden Bu Kadar Çok?</h3>
+            <ul class="feature-list">
+                <li>Alakasız mülakatlar bile gelir (örnek: demiryolu şirketinden mülakat). Ama her mülakat, bir sonrakine hazırlıktır.</li>
+                <li>Başvuru sayısı arttıkça, olasılık da artar.</li>
+                <li>En önemlisi: <strong>Mülakat kası</strong> ancak tekrarla gelişir. 5 mülakat ile 55 mülakat arasında devasa bir fark vardır.</li>
+            </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="section" id="basvuru">
+            <div class="section-header">
+                <div class="section-number">3</div>
+                <h2>Başvuru Sürecini Akıllıca Yönetme</h2>
+            </div>
+
+            <h3>3.1. Yapay Zekâ Kullanımı — Sınırları Bilerek</h3>
+            <p>AI araçları tarayıcıyı kontrol ederek otomatik başvuru yapabilir. Ancak iş portalları (LinkedIn, Glassdoor, Indeed vb.) bu otomasyonu tespit eden <strong>CAPTCHA ve özel filtreler</strong> kullanır. AI tamamen işe yaramaz demek yanlış, ama tek başına yeterli değildir.</p>
+
+            <h3>3.2. Freelancer (Upwork) Kiralama — "B10'luk" Sistemi</h3>
+            <p>Bu süreçteki en yaratıcı çözüm, başvuru işini outsource etmektir.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Adım</th>
+                            <th>Açıklama</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1. İlan Açma</strong></td>
+                            <td>Upwork'te "data girişi" veya başvuru yardımı için ilan açın.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2. Eleme</strong></td>
+                            <td>Gelen adaylar arasından 6 kişi seçin.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3. Test Görevi</strong></td>
+                            <td>Her adaya küçük bir başvuru testi verin, hızını ve kalitesini ölçün.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4. Seçim</strong></td>
+                            <td>En iyi 1 freelancer ile devam edin.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5. İletişim</strong></td>
+                            <td>WhatsApp grubu kurun. Standart dışı durumlarda hemen yazsın.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="quote-box">
+                <p>"İlk hafta gelen 300 başvuruyu, Upwork'teki 6 aday arasından seçtiğim 1 freelancer'a gönderdim. El değişti, el değişti..."</p>
+            </div>
+
+            <div class="info-card">
+                <h4>✅ Freelancer'da Aranacak Özellikler</h4>
+                <ul class="feature-list">
+                    <li><strong>Hızlı başvuru yapabilme</strong></li>
+                    <li><strong>Standart dışı durumlarda anında iletişim kurma</strong> alışkanlığı</li>
+                    <li>Güvenilirlik ve düzenli çalışma disiplini</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="section" id="mulakat">
+            <div class="section-header">
+                <div class="section-number">4</div>
+                <h2>Mülakat Hazırlığı</h2>
+            </div>
+            <p>Başvurular sonuç vermeye başladığında, asıl iş mülakatları kazanmaktır. Özellikle yabancı dilde ve az tecrübeli bir aday için bu çok zordur.</p>
+
+            <h3>Döngüsel Gelişim Sistemi</h3>
+            <div class="process-flow">
+                Mülakat <span class="arrow">→</span> Ses Kaydı Al <span class="arrow">→</span> AI'a Analiz Ettir <span class="arrow">→</span> Zayıf Noktaları Öğren <span class="arrow">→</span> Tekrar Et <span class="arrow">→</span> Daha İyi Performans
+            </div>
+
+            <h3>Nasıl Uygulanır?</h3>
+            <div class="checklist">
+                <h4>📝 Adım Adım</h4>
+                <div class="checklist-item">
+                    <div class="check-box"></div>
+                    <div><strong>Ses Kaydı:</strong> Çocuğunuz her mülakatı kaydetsin (yasal ve etik kurallara uyarak).</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-box"></div>
+                    <div><strong>AI Analizi:</strong> Kaydı bir AI aracına yükleyin: "Nerede zayıf kaldı? Hangi sorularda savunmaya geçti?"</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-box"></div>
+                    <div><strong>Geri Bildirim:</strong> AI'ın önerilerini çalışın: "Burada çok savunmaya geçmişsin, şöyle yapsaydın..."</div>
+                </div>
+                <div class="checklist-item">
+                    <div class="check-box"></div>
+                    <div><strong>Tekrar:</strong> Bir sonraki mülakatta bu hataları düzeltmeye odaklanın.</div>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h4>💡 Neden İşe Yarar?</h4>
+                <ul class="feature-list">
+                    <li>5 mülakat yapan biri ile 55 mülakat yapan biri arasında büyük fark vardır.</li>
+                    <li><strong>Panik yönetimi</strong> ancak tekrarla gelişir.</li>
+                    <li>Ana dil İngilizce olmayan biri için, kendini ifade etme pratiği kritiktir.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="section" id="networking">
+            <div class="section-header">
+                <div class="section-number">5</div>
+                <h2>Networking: Doğru İnsanı Bulmak</h2>
+            </div>
+            <p>Başvurular ve mülakatlar kadar önemli olan bir diğer unsur: <strong>Doğru insanı doğru zamanda bulmak.</strong></p>
+
+            <h3>Stratejiler</h3>
+            <ul class="feature-list">
+                <li><strong>Etkinliklere gitmek:</strong> San Francisco'daki startup etkinlikleri, network toplantıları, konferanslar.</li>
+                <li><strong>Bir CEO'nun peşine takılmak:</strong> Abartılı gelse de, bir yapay zeka şirketinin CEO'su ile tanışıp radarına girmek, süreci hızlandırmıştır.</li>
+            </ul>
+
+            <div class="info-card">
+                <h4>🚀 Gerçek Hikaye</h4>
+                <p>CEO ile <strong>Pazar</strong> günü mülakat, <strong>Pazartesi</strong> GM ile mülakat, <strong>Çarşamba</strong> teklif. Networking, "kart dağıtmak" değil, <strong>ilişki kurmaktır.</strong></p>
+            </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="section" id="kultur">
+            <div class="section-header">
+                <div class="section-number">6</div>
+                <h2>Çalışma Kültürü ve Fark Yaratma</h2>
+            </div>
+            <p>Amerika'da, özellikle teknoloji ve girişim ekosisteminde, iş etiği büyük fark yaratır.</p>
+
+            <div class="comparison-grid">
+                <div class="comparison-card bad">
+                    <h5>Genel Gözlem</h5>
+                    <p>Amerikalılar daha rahat, daha az çalışma saati odaklı.</p>
+                </div>
+                <div class="comparison-card good">
+                    <h5>Öne Çıkanlar</h5>
+                    <p>Çinliler, Hintliler ve disiplinli Türkler öne çıkar.</p>
+                </div>
+            </div>
+
+            <div class="quote-box">
+                <p>"Bizim çocukların Türkiye'deki eğitim sisteminden gelen disiplin, çalışkanlık ve hırs, Amerika'da büyük bir avantajdır."</p>
+            </div>
+
+            <h3>CEO Profili Örneği</h3>
+            <p>500 milyon dolarlık exit yapmış, Çinli kökenli bir girişimci. Bu tür yüksek enerjili, disiplinli liderler, kendi kültürlerine benzeyen çalışanları tercih eder. Çocuğunuzun kökeninin bir <strong>rekabet avantajı</strong> olduğunu hatırlatın.</p>
+        </section>
+
+        <!-- Section 7 -->
+        <section class="section" id="rolunuz">
+            <div class="section-header">
+                <div class="section-number">7</div>
+                <h2>Ebeveyn Olarak Sizin Rolünüz</h2>
+            </div>
+            <p>Bu süreçte ebeveynin desteği hayati önemdedir. Ancak bu destek, "ben hallederim" değil, <strong>"seni organize edeyim"</strong> şeklinde olmalıdır.</p>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Alan</th>
+                            <th>Eylem</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Strateji</strong></td>
+                            <td>Hedefleri belirleyin. Büyük şirket yerine startup'lara odaklanın.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Organizasyon</strong></td>
+                            <td>Freelancer sistemi kurun, iletişim kanallarını yönetin.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Analiz</strong></td>
+                            <td>Mülakat kayıtlarını AI ile analiz edin, geri bildirimleri derleyin.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Motivasyon</strong></td>
+                            <td>Reddetme sayısı artsa bile moral bozukluğunu önleyin.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Networking</strong></td>
+                            <td>Etkinliklere gitmesi için teşvik edin, finansal destek sağlayın.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="info-card" style="border-color: #fc8181; background: #fff5f5;">
+                <h4>🚫 Yapmamanız Gerekenler</h4>
+                <ul class="feature-list">
+                    <li>Çocuğunuzun yerine CV yazmak veya doğrudan şirketlerle iletişime geçmek</li>
+                    <li>Süreci "3-5 başvuru yapsın, biri çıkar" mantığıyla yönetmek</li>
+                    <li>Panik anlarında çocuğunuzun özgüvenini kırmak</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 8 -->
+        <section class="section" id="plan">
+            <div class="section-header">
+                <div class="section-number">8</div>
+                <h2>Uygulanabilir Adım Adım Plan</h2>
+            </div>
+
+            <div class="checklist">
+                <h4>📋 Faz 1: Hazırlık (1-2 Hafta)</h4>
+                <div class="checklist-item"><div class="check-box"></div><div>Hedef pozisyon ve şehirleri netleştirin.</div></div>
+                <div class="checklist-item"><div class="check-box"></div><div>CV ve temel başvuru belgelerini hazırlayın.</div></div>
+                <div class="checklist-item"><div class="check-box"></div><div>Upwork hesabı açın, freelancer ilanı hazırlayın.</div></div>
+                <div class="checklist-item"><div class="check-box"></div><div>AI araçlarını test edin, sınırlarını öğrenin.</div></div>
+            </div>
+
+            <div class="checklist">
+                <h4>📋 Faz 2: Hacimli Başvuru (Sürekli)</h4>
+                <div class="checklist-item"><div class="check-box"></div><div>Haftada minimum 200-300 başvuru hedefi koyun.</div></div>
+                <div class="checklist-item"><div class="check-box"></div><div>Freelancer ile sistemli çalışmaya başlayın.</div></div>
+                <div class="checklist-item"><div class="check-box"></div><div>Standart dışı durumlar için WhatsApp hattını aktif tutun.</div></div>
+            </div>
+
+            <div class="checklist">
+                <h4>📋 Faz 3: Mülakat Döngüsü</h4>
+                <div class="checklist-item"><div class="check-box"></div><div>Her mülakatı ses kaydına alın (izinle).</div></div>
+                <div class="checklist-item"><div class="check-box"></div><div>Kayıtları AI ile analiz edin, zayıf noktaları belirleyin.</div></div>
+                <div class="checklist-item"><div class="check-box"></div><div>Tekrarlanan hataları çalışın.</div></div>
+            </div>
+
+            <div class="checklist">
+                <h4>📋 Faz 4: Networking (Sürekli)</h4>
+                <div class="checklist-item"><div class="check-box"></div><div>Haftada en az 1 etkinliğe gitmesini teşvik edin.</div></div>
+                <div class="checklist-item"><div class="check-box"></div><div>LinkedIn üzerinden hedef şirketlerdeki insanlarla bağlantı kurmasını destekleyin.</div></div>
+            </div>
+        </section>
+
+        <!-- Comparison -->
+        <section class="section">
+            <div class="section-header">
+                <div class="section-number" style="background: linear-gradient(135deg, var(--accent), var(--accent-dark));">✦</div>
+                <h2>Özet: Kazanan Zihniyet</h2>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Geleneksel Yaklaşım</th>
+                            <th>Bu Süreçteki Yaklaşım</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>10-20 kaliteli başvuru</td>
+                            <td><strong>300+ hacimli başvuru</strong></td>
+                        </tr>
+                        <tr>
+                            <td>AI her şeyi halleder</td>
+                            <td><strong>AI + İnsan (freelancer) hibrit modeli</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Mülakat deneyimi canlıda kazanılır</td>
+                            <td><strong>Ses kaydı + AI analizi ile hızlandırılmış öğrenme</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Büyük şirketlere odaklan</td>
+                            <td><strong>Startup'lara ve esnek şirketlere odaklan</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Yalnız başvuru</td>
+                            <td><strong>Aile + freelancer + AI destekli organizasyon</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <div class="final-cta">
+            <h2>"Great Hire" Olmak İçin Önce "Great Effort" Göstermek Gerekir</h2>
+            <p>Bu rehberdeki yöntemler, sadece staj bulma süreci için değil, genel olarak kariyer planlaması için de uygulanabilir. Ebeveyn olarak en büyük katkınız, çocuğunuzun yeteneğini doğru kanallara yönlendirmek ve onu bu yoğun süreçte organize etmektir.</p>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 40px 20px; color: var(--text-light); font-size: 0.85rem; border-top: 1px solid var(--border);">
+        <p>Bir ebeveyn tecrübesinden derlenmiştir · Uygulanabilir ve sonuç odaklı</p>
+    </footer>
+
+</body>
+</html>
